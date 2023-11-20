@@ -1,0 +1,18 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * MSM8953 BQ Aquaris X specific device tree
+ *
+ * Copyright (c) 2023, Jens Reidel <adrian@travitia.xyz>
+ */
+
+/dts-v1/;
+
+#include "msm8953-bq-common.dtsi"
+
+/ {
+	/*
+	 * BQ Aquaris X
+	 */
+	model = "BQ Aquaris X";
+	compatible = "bq,bardock", "qcom,msm8953";
+};
