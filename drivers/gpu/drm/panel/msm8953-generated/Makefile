@@ -2,6 +2,7 @@ obj-$(CONFIG_DRM_PANEL_BOE_BS052FHM_A00_6C01) += panel-boe-bs052fhm-a00-6c01.o
 obj-$(CONFIG_DRM_PANEL_CSOT_622_V0) += panel-csot-622-v0.o
 obj-$(CONFIG_DRM_PANEL_FAIRPHONE_FP3_HX83112B) += panel-fairphone-fp3-hx83112b.o
 obj-$(CONFIG_DRM_PANEL_HIMAX_HX8399C_FHDPLUS) += panel-himax-hx8399c-fhdplus.o
+obj-$(CONFIG_DRM_PANEL_MDSS_FT8716) += panel-mdss-ft8716.o
 obj-$(CONFIG_DRM_PANEL_MDSS_FT8716_FHD) += panel-mdss-ft8716-fhd.o
 obj-$(CONFIG_DRM_PANEL_MDSS_ILI7807_FHD) += panel-mdss-ili7807-fhd.o
 obj-$(CONFIG_DRM_PANEL_MDSS_ILI7807_FHDPLUS) += panel-mdss-ili7807-fhdplus.o

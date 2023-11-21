@@ -432,7 +432,7 @@ static struct mipi_dsi_driver ft8716_driver = {
 	.probe = ft8716_probe,
 	.remove = ft8716_remove,
 	.driver = {
-		.name = "panel-ft8716",
+		.name = "panel-ft8716-fhd",
 		.of_match_table = ft8716_of_match,
 	},
 };
