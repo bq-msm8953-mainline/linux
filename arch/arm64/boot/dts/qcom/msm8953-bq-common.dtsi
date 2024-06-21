@@ -436,7 +436,7 @@
 };
 
 &wcnss_iris {
-	compatible = "qcom,wcn3660b";
+	compatible = "qcom,wcn3680";
 
 	vddxo-supply = <&pm8953_l7>;
 	vddrfa-supply = <&pm8953_l19>;
