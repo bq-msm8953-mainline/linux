@@ -186,7 +186,7 @@
 	vddio-supply = <&pm8953_l6>;
 
 	panel: panel@0 {
-		compatible = "mdss,ft8716";
+		compatible = "mdss,ft8716-fhd";
 		reg = <0>;
 
 		//backlight = <&pmi8950_wled>;
