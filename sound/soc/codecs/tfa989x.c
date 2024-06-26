@@ -49,6 +49,7 @@
 
 #define TFA9890_REVISION		0x80
 #define TFA9895_REVISION		0x12
+#define TFA9896_REVISION                0x96
 #define TFA9897_REVISION		0x97
 
 struct tfa989x_rev {
@@ -241,6 +242,40 @@ static const struct tfa989x_rev tfa9895_rev = {
 	.init	= tfa9895_init,
 };
 
+static int tfa9896_init(struct regmap *regmap)
+{
+	int ret;
+
+	ret = regmap_write(regmap, TFA989X_AUDIO_CTR, 0x000b);
+	if (ret)
+		return ret;
+
+	ret = regmap_write(regmap, TFA989X_DCDCBOOST, 0x3e7f);
+	if (ret)
+		return ret;
+
+	ret = regmap_write(regmap, TFA989X_I2S_SEL_REG, 0x0d8a);
+	if (ret)
+		return ret;
+
+	/* Reduce slewrate by clearing iddqtestbst to avoid booster damage */
+	ret = regmap_write(regmap, TFA989X_CURRENTSENSE3, 0x0300);
+	if (ret)
+		return ret;
+
+	ret = regmap_write(regmap, 0x88, 0x0100);
+	if (ret)
+		return ret;
+
+	/* Enable clipping */
+	return regmap_clear_bits(regmap, TFA989X_CURRENTSENSE4, 0x1);
+}
+
+static const struct tfa989x_rev tfa9896_rev = {
+	.rev    = TFA9896_REVISION,
+	.init   = tfa9896_init,
+};
+
 static int tfa9897_init(struct regmap *regmap)
 {
 	int ret;
@@ -406,6 +441,7 @@ static int tfa989x_i2c_probe(struct i2c_client *i2c)
 static const struct of_device_id tfa989x_of_match[] = {
 	{ .compatible = "nxp,tfa9890", .data = &tfa9890_rev },
 	{ .compatible = "nxp,tfa9895", .data = &tfa9895_rev },
+	{ .compatible = "nxp,tfa9896", .data = &tfa9896_rev },
 	{ .compatible = "nxp,tfa9897", .data = &tfa9897_rev },
 	{ }
 };
