@@ -182,7 +182,7 @@
 	status = "okay";
 
 	speaker_codec: audio-codec@34 {
-		compatible = "nxp,tfa9874";
+		compatible = "nxp,tfa9896";
 		reg = <0x34>;
 
 		reset-gpio = <&tlmm 89 GPIO_ACTIVE_HIGH>;
