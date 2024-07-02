@@ -12,7 +12,7 @@
 / {
 	chassis-type = "handset";
 	qcom,msm-id = <QCOM_ID_MSM8953 0>;
-	qcom,board-id = <0x2000b 0>;
+	qcom,board-id = <QCOM_BOARD_ID(QRD, 32, 0) 0>;
 
 	aliases {
 		mmc0 = &sdhc_1;
@@ -22,7 +22,6 @@
 	battery: battery {
 		compatible = "simple-battery";
 
-		charge-full-design-microamp-hours = <3059000>;
 		constant-charge-current-max-microamp = <2100000>;
 		voltage-min-design-microvolt = <3400000>;
 		voltage-max-design-microvolt = <4400000>;
@@ -381,6 +380,13 @@
 	};
 };
 
+&q6afedai {
+	dai@127 {
+		reg = <QUINARY_MI2S_RX>;
+		qcom,sd-lines = <0 1>;
+	};
+};
+
 &sdhc_1 {
 	vmmc-supply = <&pm8953_l8>;
 	vqmmc-supply = <&pm8953_l5>;
@@ -402,8 +408,6 @@
 };
 
 &sound_card {
-	model = "bq-bardock"; // FIXME
-
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&cdc_pdm_lines_act
 		&cdc_pdm_lines_2_act
@@ -415,6 +419,22 @@
 		&tlmm_pri_sus>;
 
 	status = "okay";
+
+	quinary-mi2s-dai-link {
+		link-name = "Quinary MI2S";
+
+		cpu {
+			sound-dai = <&q6afedai QUINARY_MI2S_RX>;
+		};
+
+		platform {
+			sound-dai = <&q6routing>;
+		};
+
+		codec {
+			sound-dai = <&speaker_codec>;
+		};
+	};
 };
 
 &tlmm {

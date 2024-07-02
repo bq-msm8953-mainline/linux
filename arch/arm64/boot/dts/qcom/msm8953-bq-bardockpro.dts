@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * MSM8953 BQ Aquaris X Pro specific device tree
+ *
+ * Copyright (c) 2023, Jens Reidel <adrian@travitia.xyz>
+ */
+
+/dts-v1/;
+
+#include "msm8953-bq-common.dtsi"
+
+/ {
+	/*
+	 * BQ Aquaris X Pro
+	 */
+	model = "BQ Aquaris X Pro";
+	compatible = "bq,bardockpro", "qcom,msm8953";
+};
+
+&battery {
+	charge-full-design-microamp-hours = <3133000>;
+};
+
+&sound_card {
+	model = "bq-bardockpro";
+};
