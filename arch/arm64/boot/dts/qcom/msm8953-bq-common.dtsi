@@ -244,6 +244,12 @@
 	status = "okay";
 };
 
+&mpss {
+	pll-supply = <&pm8953_l7>;
+
+	status = "okay";
+};
+
 &pm8953_resin {
 	linux,code = <KEY_VOLUMEDOWN>;
 	status = "okay";
@@ -412,11 +418,13 @@
 	pinctrl-0 = <&cdc_pdm_lines_act
 		&cdc_pdm_lines_2_act
 		&cdc_pdm_comp_lines_act
-		&tlmm_pri_act>;
+		&tlmm_pri_act
+		&tlmm_pri_ws_act>;
 	pinctrl-1 = <&cdc_pdm_lines_sus
 		&cdc_pdm_lines_2_sus
 		&cdc_pdm_comp_lines_sus
-		&tlmm_pri_sus>;
+		&tlmm_pri_sus
+		&tlmm_pri_ws_sus>;
 
 	status = "okay";
 
@@ -507,6 +515,19 @@
 	pmx_mdss_sleep: pmx-mdss-sleep-state {
 		pins = "gpio61";
 		function = "gpio";
+		drive-strength = <2>;
+		bias-pull-down;
+	};
+
+	tlmm_pri_ws_act: tlmm-pri-ws-act-state {
+		pins = "gpio92";
+		function = "pri_mi2s_ws";
+		drive-strength = <8>;
+	};
+
+	tlmm_pri_ws_sus: tlmm-pri-ws-sus-state {
+		pins = "gpio92";
+		function = "pri_mi2s_ws";
 		drive-strength = <2>;
 		bias-pull-down;
 	};
