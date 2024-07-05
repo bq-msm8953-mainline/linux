@@ -18,6 +18,7 @@ obj-$(CONFIG_DRM_PANEL_MDSS_FT8716_FHD) += panel-mdss-ft8716-fhd.o
 obj-$(CONFIG_DRM_PANEL_MDSS_ILI7807_FHD) += panel-mdss-ili7807-fhd.o
 obj-$(CONFIG_DRM_PANEL_MDSS_ILI7807_FHDPLUS) += panel-mdss-ili7807-fhdplus.o
 obj-$(CONFIG_DRM_PANEL_MDSS_NT35596_EBBG) += panel-mdss-nt35596-ebbg.o
+obj-$(CONFIG_DRM_PANEL_MDSS_OTM1906B_FHD) += panel-mdss-otm1906b-fhd.o
 obj-$(CONFIG_DRM_PANEL_MDSS_OTM1911_FHD) += panel-mdss-otm1911-fhd.o
 obj-$(CONFIG_DRM_PANEL_MDSS_OTM1911_FHDPLUS) += panel-mdss-otm1911-fhdplus.o
 obj-$(CONFIG_DRM_PANEL_MDSS_R63350) += panel-mdss-r63350.o
