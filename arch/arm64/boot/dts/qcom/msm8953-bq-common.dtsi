@@ -141,7 +141,7 @@
 		};
 	};
 
-	touchscreen@38 {
+	focaltech@38 {
 		compatible = "focaltech,ft8716";
 		reg = <0x38>;
 
@@ -159,6 +159,23 @@
 
 		touchscreen-size-x = <1080>;
 		touchscreen-size-y = <1920>;
+
+		status = "disabled";
+	};
+
+	ilitek@41 {
+		compatible = "ilitek,ili2120";
+		reg = <0x41>;
+
+		interrupt-parent = <&tlmm>;
+		interrupts = <65 IRQ_TYPE_LEVEL_LOW>;
+
+		reset-gpios = <&tlmm 64 GPIO_ACTIVE_HIGH>;
+
+		touchscreen-size-x = <1080>;
+		touchscreen-size-y = <1920>;
+
+		status = "disabled";
 	};
 };
 
@@ -211,7 +228,7 @@
 	vddio-supply = <&pm8953_l6>;
 
 	panel: panel@0 {
-		compatible = "mdss,ft8716-fhd";
+		compatible = "bq,bardock-panel";
 		reg = <0>;
 
 		//backlight = <&pmi8950_wled>;
