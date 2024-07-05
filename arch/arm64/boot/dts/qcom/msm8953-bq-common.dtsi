@@ -7,6 +7,7 @@
 #include "pm8953.dtsi"
 #include "pmi8950.dtsi"
 
+/delete-node/ &qseecom_mem;
 /delete-node/ &rmtfs;
 
 / {
@@ -63,8 +64,8 @@
 	};
 
 	reserved-memory {
-		other_ext_region@83300000 {
-			reg = <0x00 0x83300000 0x00 0x3800000>;
+		qseecom@83300000 {
+			reg = <0x0 0x83300000 0x0 0x3000000>;
 			no-map;
 		};
 
@@ -85,8 +86,6 @@
 			pmsg-size = <0x20000>;
 			ecc-size = <0x10>;
 		};
-
-		// TODO: Check venus, secure, qseecom, qseecom_ta, adsp, adsp_shmem_device, gpu, mem_dump region in downstream
 	};
 
 	vph_pwr: vph-pwr-regulator {
