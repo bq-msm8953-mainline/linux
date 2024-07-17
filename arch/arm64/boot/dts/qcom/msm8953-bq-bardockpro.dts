@@ -16,11 +16,3 @@
 	model = "BQ Aquaris X Pro";
 	compatible = "bq,bardockpro", "qcom,msm8953";
 };
-
-&battery {
-	charge-full-design-microamp-hours = <3133000>;
-};
-
-&sound_card {
-	model = "bq-bardockpro";
-};

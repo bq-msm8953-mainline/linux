@@ -23,6 +23,8 @@
 	battery: battery {
 		compatible = "simple-battery";
 
+		/* Either 3059mAh or 3133mAh depending on the battery used */
+		charge-full-design-microamp-hours = <3100000>;
 		constant-charge-current-max-microamp = <2100000>;
 		voltage-min-design-microvolt = <3400000>;
 		voltage-max-design-microvolt = <4400000>;
@@ -430,6 +432,8 @@
 };
 
 &sound_card {
+	model = "bq-bardock";
+
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&cdc_pdm_lines_act
 		&cdc_pdm_lines_2_act
