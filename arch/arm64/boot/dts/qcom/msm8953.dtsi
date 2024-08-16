@@ -862,7 +862,7 @@
 			no-map;
 		};
 
-		rmtfs@f2d00000 {
+		rmtfs: rmtfs@f2d00000 {
 			compatible = "qcom,rmtfs-mem";
 			reg = <0x0 0xf2d00000 0x0 0x180000>;
 			no-map;
